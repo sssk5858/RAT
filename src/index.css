@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #080b10;
+    --bg-secondary: #0d121a;
+    --panel-bg: #101720;
+    --panel-border: #1b2636;
+    --panel-hover: #16202e;
+    --neon-green: #72f5a1;
+    --neon-green-dim: rgba(114, 245, 161, 0.15);
+    --neon-green-glow: rgba(114, 245, 161, 0.35);
+    --neon-blue: #38bdf8;
+    --neon-blue-dim: rgba(56, 189, 248, 0.15);
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+}
+
+/* Cyber grid pattern */
+.cyber-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(27, 38, 54, 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(27, 38, 54, 0.35) 1px, transparent 1px);
+}
+
+/* Subtle CRT scanline effect */
+.scanlines {
+  position: relative;
+}
+.scanlines::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+  background-size: 100% 4px;
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* Monospace numerals */
+.font-mono-num {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom scrollbars for cyber look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080b10;
+}
+::-webkit-scrollbar-thumb {
+  background: #1b2636;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #72f5a1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
